@@ -1,6 +1,7 @@
 {
   "name": "@sp/actionware",
   "version": "0.0.63",
+  "jsnext:main": "./es/index.js",
   "description": "Actionware",
   "main": "src/index.js",
   "license": "MIT"
