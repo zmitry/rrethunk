@@ -1,0 +1,10 @@
+{
+  "name": "@sp/actionware",
+  "version": "0.0.63",
+  "description": "Actionware",
+  "main": "src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@sp/core": "^0.0.63"
+  }
+}
