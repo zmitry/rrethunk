@@ -1,15 +1,15 @@
-## Actions 
+## Actions
 
 helpers for redux which reduces boilerplate code
 
-```
+```js
 // actions
 
 const clear = (args)=>{
     return fetch('api')
 }
 
-// it will resolve this promise 
+// it will resolve this promise
 // and trigger fetchData:busy while primise is loading
 // and fetchData:success while promise is resolved
 const fetchData = (args) => (dispatch, getState)=>{
@@ -24,9 +24,8 @@ export default createActions({
     prefix: '@data',
     meta: (args)=> ({ entity: args.entity })
 })
-```
 
-```
+
 // reducer
 import actions from './actions'
 
