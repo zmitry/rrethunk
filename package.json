@@ -7,15 +7,14 @@
   "scripts": {
     "test": "npm run test:lint",
     "test:lint": "eslint .",
-    "build": "babel src -d lib"
+    "build": "babel src -d lib",
+    "prepublish": "npm test"
   },
-  "files": [
-    "./lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LestaD/redux-xtras.git"
   },
+  "files": ["lib/"],
   "keywords": [
     "redux",
     "boilerplate",

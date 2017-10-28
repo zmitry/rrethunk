@@ -1,5 +1,7 @@
 import { BUSY_TYPE, SUCCESS_TYPE, CANCEL_TYPE, ERROR_TYPE } from './constants'
 
+/* eslint-disable consistent-return */
+
 /**
  * make plain action
  *
