@@ -46,10 +46,13 @@ import actions from './actions'
 
 
 const reducer = createReducer({})
+.before(actions.fetchData, (state)=> ({ loading: true }))
+.canceled(actions.fetchData, (state)=> ({}))
 .on(actions.fetchData, (state, payload)=>{
     return payload.data
 })
-.on(actions.clear, (state)=> ({}))
+.onError(actions.fetchData, (state)=> ({}))
+
 ```
 
 
