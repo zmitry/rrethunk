@@ -25,12 +25,12 @@ export const actions = createActions({
     meta: (args)=> ({ entity: args.entity })
 })
 
-dispatch(actions.fetchData({ entity: 'todo', })) 
+dispatch(actions.fetchData({ entity: 'todo', info: 'bla lba' })) 
 /**
- *  => {type: '@data/fetchData:loading', payload: 'something happened', meta: { entity: 'todo' } }
- *  => {type: '@data/fetchData:success', payload: 'something happened', meta: { entity: 'todo' } }
- *  or  => {type: '@data/fetchData:error', payload: 'something happened', meta: { entity: 'todo' } }
- *  or  => {type: '@data/fetchData:canceled', payload: 'something happened', meta: { entity: 'todo' } }
+ *  => {type: '@data/fetchData:loading', payload: { entity: 'todo',  info: 'bla lba' }', meta: { entity: 'todo' } }
+ *  => {type: '@data/fetchData:success', payload:  {//thunk result}, meta: { entity: 'todo' } }
+ *  or  => {type: '@data/fetchData:error', payload: {//error result}, meta: { entity: 'todo' } }
+ *  or  => {type: '@data/fetchData:canceled', payload: null, meta: { entity: 'todo' } }
  * 
  */
 actions.fetchData.error('something happened') => ({  }) // => {type: '@data/fetchData:error', payload: 'something happened' }
