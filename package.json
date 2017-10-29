@@ -1,5 +1,5 @@
 {
-  "name": "redux-xtras",
+  "name": "rrethunk",
   "version": "0.1.0",
   "description": "Reduce redux boilerplate with creators",
   "main": "lib/index.js",
@@ -12,9 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LestaD/redux-xtras.git"
+    "url": "git+https://github.com/zhDmitry/rrethunk.git"
   },
-  "files": ["lib/"],
+  "files": [
+    "lib/"
+  ],
   "keywords": [
     "redux",
     "boilerplate",
@@ -26,11 +28,10 @@
     "react",
     "fiber"
   ],
-  "author": "Sergey Sova <i.am@lestad.net> (https://lestad.top)",
   "bugs": {
-    "url": "https://github.com/LestaD/redux-xtras/issues"
+    "url": "https://github.com/zhDmitry/rrethunk/issues"
   },
-  "homepage": "https://github.com/LestaD/redux-xtras#readme",
+  "homepage": "https://github.com/zhDmitry/rrethunk#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.1",

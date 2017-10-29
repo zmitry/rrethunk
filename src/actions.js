@@ -2,6 +2,11 @@ import { BUSY_TYPE, SUCCESS_TYPE, CANCEL_TYPE, ERROR_TYPE } from './constants'
 
 /* eslint-disable consistent-return */
 
+const actionCreator = (type, meta) => (payload, extraMeta) => ({
+  type,
+  payload,
+  meta: { ...meta, extraMeta },
+})
 /**
  * make plain action
  *
@@ -9,13 +14,12 @@ import { BUSY_TYPE, SUCCESS_TYPE, CANCEL_TYPE, ERROR_TYPE } from './constants'
  * @param {Array} args //arguments
  * @param {object} res // payload
  */
-const makePlainAction = (action, args, res) => ({ type: action._successType, payload: res })
+const makePlainAction = (action, args, res) => ({
+  type: action._successType,
+  payload: res,
+})
 
-const makeAsyncAction = (action, args, thunk, meta) => (
-  dispatch,
-  getState,
-  extraArguments
-) => {
+const makeAsyncAction = (action, args, thunk, meta) => (dispatch, getState, extraArguments) => {
   dispatch({
     type: action._busyType,
     args,
@@ -72,7 +76,7 @@ const makeAsyncAction = (action, args, thunk, meta) => (
 
 /* eslint-disable no-param-reassign */
 
-const setActions = (fn, prefix, fnName = fn.name) => {
+const setActions = (fn, prefix, fnName = fn.name, metaInfo) => {
   const actionName = (prefix || '') + fnName
 
   fn.baseType = actionName
@@ -80,6 +84,9 @@ const setActions = (fn, prefix, fnName = fn.name) => {
   fn._busyType = actionName + BUSY_TYPE
   fn._errorType = actionName + ERROR_TYPE
   fn._cancellationType = actionName + CANCEL_TYPE
+  fn.success = actionCreator(fn._successType, metaInfo)
+  fn.error = actionCreator(fn._errorType, metaInfo)
+  fn.loading = actionCreator(fn._busyType, metaInfo)
   return fn
 }
 
@@ -89,6 +96,7 @@ export function createAction(fn, fnName = fn.name, { prefix, meta } = {}) {
   if (fn.baseType) {
     return fn
   }
+
   function action(...args) {
     const res = fn(...args)
     let metaInfo = meta
@@ -107,7 +115,7 @@ export function createAction(fn, fnName = fn.name, { prefix, meta } = {}) {
     return reduxAction
   }
 
-  return setActions(action, prefix, fnName)
+  return setActions(action, prefix, fnName, meta)
 }
 
 export const createActions = (actions, params) => {

@@ -11,23 +11,36 @@ const clear = (args)=>{
 
 // it will resolve this promise
 // and trigger fetchData:busy while primise is loading
-// and fetchData:success while promise is resolved
+// and fetchData:success when promise is resolved
 const fetchData = (args) => (dispatch, getState)=>{
     return fetch('api')
 }
 
 
-export default createActions({
+export const actions = createActions({
     fetchData,
     clear
 }, {
-    prefix: '@data',
+    prefix: '@data/',
     meta: (args)=> ({ entity: args.entity })
 })
+
+dispatch(actions.fetchData({ entity: 'todo', })) 
+/**
+ *  => {type: '@data/fetchData:loading', payload: 'something happened', meta: { entity: 'todo' } }
+ *  => {type: '@data/fetchData:success', payload: 'something happened', meta: { entity: 'todo' } }
+ *  or  => {type: '@data/fetchData:error', payload: 'something happened', meta: { entity: 'todo' } }
+ *  or  => {type: '@data/fetchData:canceled', payload: 'something happened', meta: { entity: 'todo' } }
+ * 
+ */
+actions.fetchData.error('something happened') => ({  }) // => {type: '@data/fetchData:error', payload: 'something happened' }
+actions.fetchData.error('something happened', { user: 21 }) => ({  }) // => {type: '@data/fetchData:error', payload: 'something happened', meta: { user: 21 } }
 
 
 // reducer
 import actions from './actions'
+
+
 
 const reducer = createReducer({})
 .on(actions.fetchData, (state, payload)=>{
