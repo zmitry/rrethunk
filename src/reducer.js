@@ -32,10 +32,7 @@ function addHandler(reducer, handlers, typifier, initialState, ...args) {
   return reducer
 }
 
-export function createReducer(
-  initialState = {},
-  defaultReducer = identity
-) {
+export function createReducer(initialState = {}, defaultReducer = identity) {
   const handlers = {}
 
   const reducer = (state = initialState, action) => {
@@ -55,27 +52,16 @@ export function createReducer(
     return defaultReducer(state, action)
   }
 
-  reducer.on = addHandler.bind(
-    null,
-    reducer,
-    handlers,
-    property('_successType'),
-    initialState
-  )
-  reducer.onError = addHandler.bind(
-    null,
-    reducer,
-    handlers,
-    property('_errorType'),
-    initialState
-  )
-  reducer.before = addHandler.bind(
-    null,
-    reducer,
-    handlers,
-    property('_busyType'),
-    initialState
-  )
+  reducer.on = addHandler.bind(null, reducer, handlers, property('_successType'), initialState)
+  reducer.onError = addHandler.bind(null, reducer, handlers, property('_errorType'), initialState)
+  reducer.before = addHandler.bind(null, reducer, handlers, property('_busyType'), initialState)
 
+  reducer.cancel = addHandler.bind(
+    null,
+    reducer,
+    handlers,
+    property('_cancellationType'),
+    initialState
+  )
   return reducer
 }
