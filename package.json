@@ -1,8 +1,50 @@
 {
-  "name": "@sp/actionware",
-  "version": "0.0.63",
-  "jsnext:main": "./es/index.js",
-  "description": "Actionware",
-  "main": "src/index.js",
-  "license": "MIT"
+  "name": "redux-xtras",
+  "version": "0.1.0",
+  "description": "Reduce redux boilerplate with creators",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "npm run test:lint",
+    "test:lint": "eslint .",
+    "build": "babel src -d lib",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LestaD/redux-xtras.git"
+  },
+  "files": ["lib/"],
+  "keywords": [
+    "redux",
+    "boilerplate",
+    "action",
+    "creator",
+    "reducer",
+    "function",
+    "js",
+    "react",
+    "fiber"
+  ],
+  "author": "Sergey Sova <i.am@lestad.net> (https://lestad.top)",
+  "bugs": {
+    "url": "https://github.com/LestaD/redux-xtras/issues"
+  },
+  "homepage": "https://github.com/LestaD/redux-xtras#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-node8": "^1.2.0",
+    "eslint": "^4.10.0",
+    "eslint-config-atomix-base": "^4.4.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  },
+  "peerDependencies": {
+    "react-redux": "5.*",
+    "redux": "3.*"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.4"
+  }
 }

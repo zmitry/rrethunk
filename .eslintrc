@@ -1,0 +1,9 @@
+{
+  "extends": "atomix-base",
+  "parser": "babel-eslint",
+  "rules": {
+    "object-curly-newline": "off",
+    "object-curly-spacing": "off",
+    "no-underscore-dangle": "off"
+  }
+}
