@@ -1,7 +1,7 @@
 
 
 ## rrethunk
-[![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/rrethunk)
+[![NPM Downloads](https://img.shields.io/npm/dm/rrethunk.svg?style=flat)](https://www.npmjs.com/package/rrethunk)
 helpers for redux which reduces boilerplate code
 ## Actions
 
