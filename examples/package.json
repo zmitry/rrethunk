@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^2.13.8",
+    "gh-pages": "^1.0.0",
     "normalizr": "^3.2.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -13,9 +14,12 @@
     "redux-thunk": "^2.2.0",
     "rrethunk": "file:../"
   },
+  "homepage": "https://zhdmitry.github.io/rrethunk",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

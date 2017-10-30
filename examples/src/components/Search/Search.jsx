@@ -1,14 +1,12 @@
 import React from "react";
-import { Input, Tabs, Spin } from "antd";
-
-const Search = Input.Search;
+import { Input, Spin } from "antd";
 
 function LiveSearch(props) {
   const { spinning, ...restProps } = props;
   return (
     <div>
       <Input
-        placeholder="input search"
+        placeholder="Create Todo"
         size="large"
         style={{ width: "70%" }}
         {...restProps}

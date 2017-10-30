@@ -10,7 +10,16 @@ class TodoList extends Component {
     const { actions, type } = this.props;
     actions.fetchTodo({ type });
   }
-
+  renderTodo(el) {
+    const style = el.done ? { textDecoration: "line-through" } : {};
+    return (
+      <li onClick={e => actions.toggleTodo(el)} key={el.id} style={style}>
+        <Spin spinning={!!el.loading && el.loading !== "undefined"}>
+          {el.text}
+        </Spin>
+      </li>
+    );
+  }
   render() {
     const { items, loading, actions } = this.props;
 
@@ -19,23 +28,7 @@ class TodoList extends Component {
         style={{ display: "flex", justifyContent: "center", minHeight: 200 }}
       >
         <Spin spinning={!!loading}>
-          <ul>
-            {items.map(el => {
-              console.log("el: ", el);
-              const style = el.done ? { textDecoration: "line-through" } : {};
-              return (
-                <li
-                  onClick={e => actions.toggleTodo(el)}
-                  key={el.id}
-                  style={style}
-                >
-                  <Spin spinning={!!el.loading && el.loading !== "undefined"}>
-                    {el.text}
-                  </Spin>
-                </li>
-              );
-            })}
-          </ul>
+          <ul>{items.map(this.renderTodo)}</ul>
         </Spin>
       </div>
     );

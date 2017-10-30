@@ -1,9 +1,9 @@
 {
   "name": "rrethunk",
-  "version": "0.4.0",
+  "version": "0.7.0",
   "description": "Reduce redux boilerplate with creators",
   "main": "lib/index.js",
-  "es:main": "src/index.js",
+  "es:main": "es/index.js",
   "license": "MIT",
   "scripts": {
     "test": "npm run test:lint",
@@ -17,7 +17,6 @@
     "type": "git",
     "url": "git+https://github.com/zhDmitry/rrethunk.git"
   },
-  "files": ["lib/", "es/", "README.md"],
   "keywords": [
     "redux",
     "boilerplate",
