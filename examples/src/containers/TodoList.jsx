@@ -10,16 +10,24 @@ class TodoList extends Component {
     const { actions, type } = this.props;
     actions.fetchTodo({ type });
   }
-  renderTodo(el) {
+  renderTodo = el => {
     const style = el.done ? { textDecoration: "line-through" } : {};
     return (
-      <li onClick={e => actions.toggleTodo(el)} key={el.id} style={style}>
+      <li
+        key={el.id}
+        style={style}
+        onClick={e => {
+          this.props.actions.toggleTodo(el);
+          console.log("el: ", actions.toggleTodo);
+          console.log("click");
+        }}
+      >
         <Spin spinning={!!el.loading && el.loading !== "undefined"}>
           {el.text}
         </Spin>
       </li>
     );
-  }
+  };
   render() {
     const { items, loading, actions } = this.props;
 
