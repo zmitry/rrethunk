@@ -1,22 +1,23 @@
 {
   "name": "rrethunk",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "Reduce redux boilerplate with creators",
   "main": "lib/index.js",
+  "es:main": "src/index.js",
   "license": "MIT",
   "scripts": {
     "test": "npm run test:lint",
-    "test:lint": "eslint .",
-    "build": "babel src -d lib",
+    "test:lint": "eslint ./src",
+    "build": "npm run build:lib && npm run build:es",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:lib": "babel src --out-dir lib",
     "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhDmitry/rrethunk.git"
   },
-  "files": [
-    "lib/"
-  ],
+  "files": ["lib/", "es/", "README.md"],
   "keywords": [
     "redux",
     "boilerplate",

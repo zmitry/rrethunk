@@ -1,7 +1,7 @@
 import { BUSY_TYPE, ERROR_TYPE, SUCCESS_TYPE } from './constants'
 
 
-export function actionStateReducer(state = {}, reduxAction) {
+export function actionStateReducer(state = {}, reduxAction = {}) {
   const { payload, type } = reduxAction
   const actionwareType = reduxAction.actionType
 
