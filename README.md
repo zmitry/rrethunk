@@ -57,7 +57,7 @@ const reducer = createReducer({})
 
 
 ## custom combineReducer
-```
+```js
 const reducer = combineReducer({
     a: s=>s,
     b: s=>s
