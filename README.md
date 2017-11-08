@@ -56,6 +56,17 @@ const reducer = createReducer({})
 ```
 
 
+## custom combineReducer
+```
+const reducer = combineReducer({
+    a: s=>s,
+    b: s=>s
+}).on(actions.done, (state, action)=>({
+// state is {a, b}; 
+return { a: state.a }
+}))
+```
+
 # how to use
 1. add redux-thunk middleware
 2. just use it as plain actions
