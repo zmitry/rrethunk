@@ -5,6 +5,7 @@ import { BUSY_TYPE, SUCCESS_TYPE, CANCEL_TYPE, ERROR_TYPE } from './constants'
 const actionCreator = (type, meta) => (payload, extraMeta) => ({
   type,
   payload,
+  actionType: action.baseType,
   meta: { ...meta, extraMeta },
 })
 /**

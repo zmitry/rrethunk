@@ -63,3 +63,7 @@ const reducer = createReducer({})
 
 
 also there is actionState reducer which store state of each action
+
+## to read
+the idea of decoupling async actions and api repository 
+https://medium.com/@david.losert_73564/dependency-inversion-with-redux-thunk-typescript-e09cebabdc1f
