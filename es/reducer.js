@@ -43,7 +43,7 @@ function createReducer(initialState = {}, defaultReducer = _lodashEs.identity) {
   const handlers = {};
 
   const reducer = (state = initialState, action) => {
-    const { type, payload, args, meta } = action || {};
+    const { type, payload, args = [], meta } = action || {};
     if (handlers[type]) {
       const handler = handlers[type];
       if (type.endsWith(_constants.BUSY_TYPE)) {

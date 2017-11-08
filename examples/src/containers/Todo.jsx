@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Tabs, Layout, Spin } from "antd";
+import { Tabs, Layout, Spin, Button } from "antd";
 
 import LiveSearch from "../components/Search";
 import { connect } from "react-redux";
@@ -34,6 +34,8 @@ class TodoContainer extends Component {
           </Header>
           <Layout>
             <Content>
+              <Button onClick={this.props.actions.clearTodos}>Clear All</Button>
+              <div>{JSON.stringify(this.props.error)}</div>
               <Tabs type="card" onTabClick={this.onChange}>
                 <TabPane tab="All" key="all">
                   <TodoList type="all" />
@@ -56,7 +58,8 @@ class TodoContainer extends Component {
 
 const ehnace = connect(state => {
   return {
-    creating: state.actions[actions.createTodo._busyType]
+    creating: state.actions[actions.createTodo._busyType],
+    error: state.actions[actions.createTodo._errorType]
   };
 }, withActionsConnect(actions));
 

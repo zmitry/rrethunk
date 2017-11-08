@@ -6150,9 +6150,9 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^2.0.0"
     inherits "^2.0.1"
 
-rrethunk@^0.8.2:
-  version "0.8.2"
-  resolved "http://37.187.163.104:4873/rrethunk/-/rrethunk-0.8.2/6f7e01d5e63de662d5d1716a99b603bee71847f3.tgz#6f7e01d5e63de662d5d1716a99b603bee71847f3"
+rrethunk@^0.8.7:
+  version "0.8.7"
+  resolved "http://37.187.163.104:4873/rrethunk/-/rrethunk-0.8.7/7e31675b92e43105aa501daf1a3fcea1e3ae027e.tgz#7e31675b92e43105aa501daf1a3fcea1e3ae027e"
   dependencies:
     lodash-es "^4.17.4"
 

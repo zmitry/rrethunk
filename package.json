@@ -1,6 +1,6 @@
 {
   "name": "rrethunk",
-  "version": "0.8.2",
+  "version": "0.8.7",
   "description": "Reduce redux boilerplate with creators",
   "main": "lib/index.js",
   "es:main": "es/index.js",
@@ -8,6 +8,7 @@
   "scripts": {
     "test": "npm run test:lint",
     "test:lint": "eslint ./src",
+    "deploy": "npm run build && npm publish",
     "build": "npm run build:lib && npm run build:es",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:lib": "babel src --out-dir lib",

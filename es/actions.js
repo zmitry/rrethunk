@@ -56,6 +56,8 @@ const makeAsyncAction = (action, args, thunk, meta) => (dispatch, getState, extr
         dispatch({
           type: action._errorType,
           payload: error,
+          args,
+          meta,
           actionType: action.baseType
         });
         return Promise.reject(error);
@@ -67,6 +69,7 @@ const makeAsyncAction = (action, args, thunk, meta) => (dispatch, getState, extr
       dispatch({
         type: action._cancelType,
         payload,
+        args,
         actionType: action.baseType
       });
       return !canceled;

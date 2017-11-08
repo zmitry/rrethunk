@@ -36,10 +36,13 @@ const toggleTodo = todo => (dispatch, getState, context) => {
   return context.api.editTodo({ id: todo.id, data: newState });
 };
 
+const clearTodos = s => s;
+
 const actions = {
   fetchTodo,
   createTodo,
   removeTodo,
+  clearTodos,
   toggleTodo,
   editTodo
 };

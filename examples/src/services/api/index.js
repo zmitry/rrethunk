@@ -39,6 +39,9 @@ export const setupApi = ({ token, origin }) => {
   };
 
   const createTodo = ({ data }) => {
+    if (Math.random() > 0.5) {
+      return Promise.reject({ error: "bla bla" });
+    }
     return delay(T).then(e => {
       storage[++id] = data;
       data["id"] = id;

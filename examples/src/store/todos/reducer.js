@@ -1,15 +1,16 @@
 import { createReducer, combineReducers } from "rrethunk";
 import actions from "./actions";
 
+const remove = (state, id) => state.filter(el => el !== id);
 const todosById = createReducer([])
   .on(actions.fetchTodo, (state, newState) => newState.result)
   .before(actions.createTodo, (state, { id }) => [...state, id])
-  .on(actions.createTodo, (state, payload) => [
-    ...state.filter(el => el !== payload.tempId),
-    payload.data.id
-  ])
-  .on(actions.removeTodo, (state, payload) =>
-    state.filter(el => el !== payload.id)
+  .on(actions.createTodo, (state, payload) =>
+    remove(state, payload.tempId).concat(payload.data.id)
+  )
+  .on(actions.removeTodo, (state, payload) => remove(state, payload.id))
+  .onError(actions.createTodo, (state, payload, args) =>
+    remove(state, args.id)
   );
 
 const todoReducer = createReducer({})
@@ -28,6 +29,12 @@ const todoReducer = createReducer({})
     [payload.tempId]: null,
     [payload.data.id]: payload.data
   }))
+  .onError(actions.createTodo, (state, payload, args) => {
+    return {
+      ...state,
+      [args.id]: null
+    };
+  })
   .on(actions.removeTodo, (state, payload) => ({
     ...state,
     [payload.id]: null
@@ -50,9 +57,11 @@ const getTodoReducer = type => {
   };
 };
 
-export default combineReducers({
+export const reducer = combineReducers({
   todoData: todoReducer,
   all: getTodoReducer("all"),
   done: getTodoReducer("done"),
   todo: getTodoReducer("todo")
-});
+}).on(actions.clearTodos, state => reducer({}, {}));
+
+export default reducer;
