@@ -67,13 +67,20 @@ return { a: state.a }
 }))
 ```
 
+also there is actionState reducer which store state of each action
+
 # how to use
 1. add redux-thunk middleware
 2. just use it as plain actions
 
+# TODO
+this lib tries to implement common use cases such as 
+1. Handling async actions state with constants boilerplate 
+2. Handling async actions creation with prefixing and auto meta info
+3. Handling actions canceling, takeLatest, takeFirst
+4. Make reducer more easier to write and enforce you for writing more atomic reducers.
+5. Handling actions transactions and reverting
 
-
-also there is actionState reducer which store state of each action
 
 ## to read
 the idea of decoupling async actions and api repository 
